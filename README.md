@@ -9,7 +9,7 @@ This calendar app for scheduling your work day was designed to enhance my skills
 * Moment.js
 
 ## Site Location
-[Work Day Scheduler](https://mariuszwiacek.github.io/Work-Day-Scheduler/)
+[Work Day Scheduler](https://mariuszwiacek.github.io/Scheduler/)
 
 ## Contribution
 Made by Mariusz Wiacek
