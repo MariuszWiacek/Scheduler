@@ -15,6 +15,6 @@ This calendar app for scheduling your work day was designed to enhance my skills
 Made by Mariusz Wiacek
 
 ## Site Image
-![alt text](images/WorkDaySchedulerScreenShot.png)
+![alt text][(images/screenshot.png)
 
 ### ©️2023 Mariusz Wiacek
