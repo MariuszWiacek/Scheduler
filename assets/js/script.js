@@ -6,28 +6,14 @@ var currentDay = moment().format(' dddd, MMMM Do YYYY');
 
 $("#currentDay").text(currentDay);
 
-// Create an array to hold the standard business hours (9AM to 5PM)
+// Create an array for hours
 var hours = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
 
 for (var i = 0; i < hours.length; i++) {
     var hour = hours[i];
-    var hourIn12Format = moment(hour, "hh A").format('hh A');
-    hours[i] = hourIn12Format;
+    var hours12 = moment(hour, "hh A").format('hh A');
+    hours[i] = hours12;
 }
-
-// setting colors by adding class to text area
-
-$("textarea").filter(function () {
-    return parseInt(this.id) < currentTime;
-}).addClass("past");
-
-$("textarea").filter(function () {
-    return parseInt(this.id) == currentTime;
-}).addClass("present");
-
-$("textarea").filter(function () {
-    return parseInt(this.id) > currentTime;
-}).addClass("future");
 
 
 // CREATE TIME BLOCKS
@@ -41,10 +27,10 @@ for (var i = 0; i < hours.length; i++) {
     $hour.html(hours[i]);
     $timeblock.append($hour);
 
-    // Add the timeblock to the container
+    // timeblock
     $(".container").append($timeblock);
 
-    // Add a textarea to each timeblock
+    // textarea
     var $eventTextarea = $("<textarea>", { class: "description" });
     $timeblock.append($eventTextarea);
 
@@ -54,10 +40,17 @@ for (var i = 0; i < hours.length; i++) {
 
     
       // Add a delete to each timeblock
-      var $delButton = $("<button>", { class: "delBtn" }).html("<i class='fas fa-save' title='Save Event'></i>");
+      var $delButton = $("<button>", { class: "delBtn" }).html("<i class='fas fa-trash' title='Delete Event'></i>");
       $timeblock.append($delButton);
       
-    // Add a save button to each timeblock
+
+
+
+    
+
+
+
+    // Add a save button 
     var $saveButton = $("<button>", { class: "saveBtn" }).html("<i class='fas fa-save' title='Save Event'></i>");
     $timeblock.append($saveButton);
 
@@ -77,7 +70,13 @@ for (var i = 0; i < hours.length; i++) {
         localStorage.setItem(time, inputValue);
 
     });
-    
+
+    // Add an event listener to the delete button
+    $delButton.click(function() {
+       var removed = $(this).siblings(".description").val(removed);
+       localStorage.removeItem(removed);
+    });
+
 // adds styles 
 var currentTime = moment().startOf('hour');
 if (moment(hours[i], "hh A").isAfter(currentTime)) {
@@ -89,3 +88,8 @@ if (moment(hours[i], "hh A").isAfter(currentTime)) {
 }
     
 };
+
+
+//FOOTER IN HTML
+
+

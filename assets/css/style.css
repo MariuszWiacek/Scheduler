@@ -93,3 +93,9 @@ textarea {
   transition: all 0.3s ease-in-out;
 
 }
+
+footer {
+  padding: 30px;
+  font-size: small;
+  text-align: center;
+}
